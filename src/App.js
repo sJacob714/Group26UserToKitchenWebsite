@@ -145,11 +145,11 @@ export default function App(){
       </div>
 
       <div>
+      <span>Table Number is : {inputProps.value} </span>
         <StyledInput
           {...inputProps}
           placeholder="Table Number Here"
         />
-        <span>Table Number is : {inputProps.value} </span>
       </div>
 
 {/*}
