@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/Group26Website/static/js/main.12386f2e.chunk.js",
-    "main.js.map": "/Group26Website/static/js/main.12386f2e.chunk.js.map",
-    "runtime~main.js": "/Group26Website/static/js/runtime~main.4b4af6b9.js",
-    "runtime~main.js.map": "/Group26Website/static/js/runtime~main.4b4af6b9.js.map",
-    "static/js/2.74790ff7.chunk.js": "/Group26Website/static/js/2.74790ff7.chunk.js",
-    "static/js/2.74790ff7.chunk.js.map": "/Group26Website/static/js/2.74790ff7.chunk.js.map",
-    "index.html": "/Group26Website/index.html",
-    "precache-manifest.f377f9d30a662856ff38f3a97eba9342.js": "/Group26Website/precache-manifest.f377f9d30a662856ff38f3a97eba9342.js",
-    "service-worker.js": "/Group26Website/service-worker.js"
+    "main.js": "/Group26UserToKitchenWebsite/static/js/main.12386f2e.chunk.js",
+    "main.js.map": "/Group26UserToKitchenWebsite/static/js/main.12386f2e.chunk.js.map",
+    "runtime~main.js": "/Group26UserToKitchenWebsite/static/js/runtime~main.0f623507.js",
+    "runtime~main.js.map": "/Group26UserToKitchenWebsite/static/js/runtime~main.0f623507.js.map",
+    "static/js/2.71a36e05.chunk.js": "/Group26UserToKitchenWebsite/static/js/2.71a36e05.chunk.js",
+    "static/js/2.71a36e05.chunk.js.map": "/Group26UserToKitchenWebsite/static/js/2.71a36e05.chunk.js.map",
+    "index.html": "/Group26UserToKitchenWebsite/index.html",
+    "precache-manifest.ac06c1aae409a2ace1475485e6b655d7.js": "/Group26UserToKitchenWebsite/precache-manifest.ac06c1aae409a2ace1475485e6b655d7.js",
+    "service-worker.js": "/Group26UserToKitchenWebsite/service-worker.js"
   }
 }
