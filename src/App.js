@@ -127,11 +127,13 @@ function useInput(defaultValue) {
 
 export default function App(){
   const inputProps = useInput();
-  const [open, setOpen] = useState(false);
-  const [data, setData] = useState({ clicks: 0 });
-  //const menu1Num = 0;
-  const menu2Num = 0;
-  const menu3Num = 0;
+  const [open1, setOpen1] = useState(false);
+  const [open2, setOpen2] = useState(false);
+  const [open3, setOpen3] = useState(false);
+
+  const [data1, setData1] = useState({ menu1Num: 0 });
+  const [data2, setData2] = useState({ menu2Num: 0 });
+  const [data3, setData3] = useState({ menu3Num: 0 });
 
   return (
 
@@ -150,8 +152,8 @@ export default function App(){
         <span>Table Number is : {inputProps.value} </span>
       </div>
 
+{/*}
       <div>
-        
         <Button onClick={AddedToBasket}>
           Menu Item 1
         </Button>
@@ -171,6 +173,67 @@ export default function App(){
       <a href="https://www.google.com" target="_blank">
         <Button>Link To Google</Button>
       </a>
+  */}
+
+<div>
+      <div>Number of Menu Item 1 in Basket: {data1.menu1Num}</div>
+      <Button
+        
+        onClick={() => {
+          setOpen1(true);
+        }}
+      >
+        Menu Item 1
+      </Button>
+      {open1 && (
+        <MenuItem1
+          //{...props}
+          setOpen1={setOpen1}
+          data1={data1}
+          setData1={setData1}
+        />
+      )}
+      </div>
+
+      <div>
+      <div>Number of Menu Item 2 in Basket: {data2.menu2Num}</div>
+      <Button
+        
+        onClick={() => {
+          setOpen2(true);
+        }}
+      >
+        Menu Item 2
+      </Button>
+      {open2 && (
+        <MenuItem2
+          //{...props}
+          setOpen2={setOpen2}
+          data2={data2}
+          setData2={setData2}
+        />
+      )}
+      </div>
+
+      <div>
+      <div>Number of Menu Item 3 in Basket: {data3.menu3Num}</div>
+      <Button
+        
+        onClick={() => {
+          setOpen3(true);
+        }}
+      >
+        Menu Item 3
+      </Button>
+      {open3 && (
+        <MenuItem3
+          //{...props}
+          setOpen3={setOpen3}
+          data3={data3}
+          setData3={setData3}
+        />
+      )}
+      </div>
       
       <ToggleGroup />
 
@@ -180,27 +243,6 @@ export default function App(){
         </Button>
       </div>
 
-      <div>
-      <div>Entered Number: {data.clicks}</div>
-      <Button
-        
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        OPEN MODAL
-      </Button>
-      {open && (
-        <ModalContainer
-          //{...props}
-          setOpen={setOpen}
-          data={data}
-          setData={setData}
-        />
-      )}
-    </div>
-
-      
     </>
   );
 }
@@ -211,6 +253,7 @@ export default function App(){
 /////////////////////////Modal Test/////////////////////////////////////////////////////////////////////////////////
 const Modal = styled.div`
   max-width: 500px;
+  border-radius: 5px;
   background-color: white;
   position: fixed;
   top: 75px;
@@ -232,21 +275,12 @@ export const ModalContent = styled.div`
 `;
 export const ModalFooter = styled.div`
   box-shadow: 0px -2px 10px 0px grey;
+  border-radius: 5px;
   height: 60px;
   display: flex;
   justify-content: center;
 `;
-export const ConfirmButton = styled.div`
-  margin: 10px;
-  color: white;
-  height: 40px;
-  border-radius: 5px;
-  padding: 5px;
-  text-align: center;
-  width: 200px;
-  cursor: pointer;
-  background-color: blue;
-`;
+
 const ModalShadow = styled.div`
   position: fixed;
   height: 100%;
@@ -258,7 +292,8 @@ const ModalShadow = styled.div`
 `;
 const ModalBanner = styled.div`
   margin-bottom: 20px;
-  background-color: blue;
+  border-radius: 5px;
+  background-color: #3f51b5;
   color: white;
   padding: 10px;
 `;
@@ -270,15 +305,15 @@ const Input = styled.input`
 export const MainButton = styled.button`
 `;
 
-function ModalContainer({ setOpen, data, setData }) {
-  const [localData, setLocalData] = useState(data);
-  const { clicks } = localData;
+function MenuItem1({ setOpen1, data1, setData1 }) {
+  const [localData1, setLocalData1] = useState(data1);
+  const { menu1Num } = localData1;
   function close() {
-    setOpen(false);
+    setOpen1(false);
   }
-  function submit() {
-    setData({
-      clicks,
+  function submit1() {
+    setData1({
+      menu1Num,
     });
     close();
   }
@@ -297,14 +332,98 @@ function ModalContainer({ setOpen, data, setData }) {
           <label>
             Number of Items
             <Input
-              value={clicks}
+              value={menu1Num}
               type="number"
-              onChange={e => setLocalData({ clicks: e.target.value })}
+              onChange={e => setLocalData1({ menu1Num: e.target.value })}
             />
           </label>
         </ModalContent>
         <ModalFooter>
-          <ConfirmButton onClick={submit}> Submit </ConfirmButton>
+          <Button onClick={submit1}> Submit </Button>
+        </ModalFooter>
+      </Modal>
+    </>,
+    document.getElementById('app-modal'),
+  );
+}
+
+function MenuItem2({ setOpen2, data2, setData2 }) {
+  const [localData2, setLocalData2] = useState(data2);
+  const { menu2Num } = localData2;
+  function close() {
+    setOpen2(false);
+  }
+  function submit2() {
+    setData2({
+      menu2Num,
+    });
+    close();
+  }
+  const content = new Array(1).fill(
+    <p>
+      Enter how many you would like to order
+    </p>,
+  );
+  return ReactDOM.createPortal(
+    <>
+      <ModalShadow onClick={close} />
+      <Modal>
+        <ModalBanner>Number of Items</ModalBanner>
+        <ModalContent>
+          {content}
+          <label>
+            Number of Items
+            <Input
+              value={menu2Num}
+              type="number"
+              onChange={e => setLocalData2({ menu2Num: e.target.value })}
+            />
+          </label>
+        </ModalContent>
+        <ModalFooter>
+          <Button onClick={submit2}> Submit </Button>
+        </ModalFooter>
+      </Modal>
+    </>,
+    document.getElementById('app-modal'),
+  );
+}
+
+function MenuItem3({ setOpen3, data3, setData3 }) {
+  const [localData3, setLocalData3] = useState(data3);
+  const { menu3Num } = localData3;
+  function close() {
+    setOpen3(false);
+  }
+  function submit3() {
+    setData3({
+      menu3Num,
+    });
+    close();
+  }
+  const content = new Array(1).fill(
+    <p>
+      Enter how many you would like to order
+    </p>,
+  );
+  return ReactDOM.createPortal(
+    <>
+      <ModalShadow onClick={close} />
+      <Modal>
+        <ModalBanner>Number of Items</ModalBanner>
+        <ModalContent>
+          {content}
+          <label>
+            Number of Items
+            <Input
+              value={menu3Num}
+              type="number"
+              onChange={e => setLocalData3({ menu3Num: e.target.value })}
+            />
+          </label>
+        </ModalContent>
+        <ModalFooter>
+          <Button onClick={submit3}> Submit </Button>
         </ModalFooter>
       </Modal>
     </>,
