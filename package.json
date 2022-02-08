@@ -4,7 +4,9 @@
   "description": "React Button demo with theme, disabled, link button, toggle, and tabs. ",
   "keywords": [],
   "main": "src/index.js",
+  "homepage": "https://sJacob714.github.io/Group26Website ",
   "dependencies": {
+    "gh-pages": "^3.2.3",
     "react": "16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.0.1",
@@ -14,6 +16,8 @@
     "typescript": "3.3.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
